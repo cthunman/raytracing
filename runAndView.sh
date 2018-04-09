@@ -1,5 +1,5 @@
 #!/bin/sh
 
-g++ createImage.cpp
+g++ main.cpp
 ./a.out > img.ppm
 open img.ppm
