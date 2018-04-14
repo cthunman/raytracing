@@ -28,16 +28,16 @@ int main() {
     rng.seed(std::random_device()());
     std::uniform_real_distribution<float> rand_float(0.0, 1.0);
 
-    int nx = 400;
-    int ny = 200;
-    int ns = 10;
+    int nx = 500;
+    int ny = 250;
+    int ns = 30;
     std::cout << "P3\n" << nx << " " << ny << "\n255\n";
 
     hitable *list[4];
-    list[0] = new sphere(vec3(0,0,-1), 0.5, new lambertian(vec3(0.8, 0.3, 0.3)));
-    list[1] = new sphere(vec3(0,-100.5,-1), 0.5, new lambertian(vec3(0.8, 0.8, 0.0)));
-    list[2] = new sphere(vec3(1,0,-1), 0.5, new metal(vec3(0.8, 0.6, 0.2)));
-    list[3] = new sphere(vec3(-1,0,-1), 0.5, new metal(vec3(0.8, 0.8, 0.8)));
+    list[0] = new sphere(vec3(0,0,-1.5), 0.5, new metal(vec3(0.8, 0.3, 0.3)));
+    list[1] = new sphere(vec3(0,-100.5,-1.5), 100, new lambertian(vec3(0.8, 0.8, 0.0)));
+    list[2] = new sphere(vec3(1,0,-1.5), 0.5, new metal(vec3(0.8, 0.6, 0.2)));
+    list[3] = new sphere(vec3(-1,0,-1.5), 0.5, new metal(vec3(0.8, 0.8, 0.8)));
     hitable *world = new hitable_list(list, 4);
 
     camera cam;
